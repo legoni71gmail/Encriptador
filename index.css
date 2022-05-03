@@ -1,0 +1,82 @@
+textarea{
+    border: none; 
+    resize: none; 
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.textoAProcesar{
+    width: 15cm; 
+    margin: 2cm; 
+    background-color: #e8e8e8; 
+    font-size: large; 
+    color: darkblue;
+}
+
+.textoProcesado{
+    width: 7cm; 
+    height: auto; 
+    margin: 0.4cm; 
+    font-size: 14px;
+    font-weight: bold; 
+    color: black;
+}
+
+.textIngrese{
+    width: 7cm; 
+    height: auto; 
+    margin: 0.5cm; 
+    vertical-align: top; 
+    font-size: 10px; 
+    color: grey;
+}
+
+.div1{
+    display: inline-block; 
+    width: 50%;
+}
+
+.div2{
+    display: inline-block; 
+    height: 15cm; 
+    width: 8cm; 
+    background-color: white; 
+    border-radius: 10px; 
+    vertical-align: top;
+}
+
+.botones{
+    height: 10cm; 
+    width: 90%; 
+    font-family: Arial, Helvetica, sans-serif; 
+    padding: 3px;
+}
+
+input{
+    display: inline-block;
+    font-size: 10px; 
+    height: 1cm;
+    width: 6cm; 
+    border: 1px; 
+    border-color: darkblue; 
+    border-style: solid; 
+    border-radius: 15px;
+}
+
+.encriptar{
+    background-color: darkblue; 
+    color: lightgray;
+    margin: 0cm 2cm; 
+}
+
+.desencriptar{
+    background-color: lightgray; 
+    color: darkblue; 
+}
+
+.copiar{
+    background-color: lightgray; 
+    color: darkblue; 
+    margin: 0cm 3.5cm; 
+    visibility: hidden;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Reto 1 ONE: Encriptador - Desencriptador</title>
+        <link rel="stylesheet" href="index.css">    
+    </head>
+
+    <body style="background-color: #e8e8e8;">
+
+        <!-- Logo -->
+        <header>
+            <img src="images/Logo.png">
+        </header>
+
+        <!-- Sección donde se ingresa el texto a procesar -->
+        <div class="div1">
+            <textarea class="textoAProcesar" name="texto" id="texto" placeholder="Ingrese el texto aquí"></textarea>
+        </div>
+
+        <!-- Sección donde se muestra el texto procesado -->
+        <div class="div2">
+            <img src="images/Muñeco.png" style="width: 5cm; display: block; margin: 20% 20%;">
+
+            <textarea class="textoProcesado" name="encriptado" id="encriptado" disabled placeholder="Ningún mensaje fue encontrado"></textarea>
+
+            <textarea class="textIngrese" name="textIngrese" id="textIngrese" disabled >Ingresa el texto que desees encriptar o desencriptar</textarea>
+        </div>
+
+        <!-- Sección donde se encuentran los botones "Encriptar", "Desencriptar" y "Copiar" -->
+        <div class="botones">
+            <input class="encriptar" type="button" value="Encriptar">
+            <input class="desencriptar" type="button" value="Desencriptar">
+            <input class="copiar" type="button" value="Copiar">
+        </div>
+
+    </body>
+
+</html>
+
+<script>
+    var encriptar = document.querySelector(".encriptar");
+    var desencriptar = document.querySelector(".desencriptar");
+    var copiar = document.querySelector(".copiar");
+    var textoCifrado = "";
+    var valoresNoValidos = "AEIOUáéíóú";
+    var valoresTextoClaro = "aeiou";
+    var valoresTextoCifrado = ["ai","enter","imes","ober","ufat"];
+
+    encriptar.onclick = encripta;
+    desencriptar.onclick = desencripta;
+    copiar.onclick = copia;
+
+    function encripta(){
+        var textoAProcesar = document.querySelector(".textoAProcesar");
+        var textoProcesado = document.querySelector(".textoProcesado");
+        var botonCopiar = document.querySelector(".copiar");
+        var textIngrese = document.querySelector(".textIngrese");
+        var textoACifrar = textoAProcesar.value;
+        textoCifrado = "";
+        for(i=0;i<textoACifrar.length;i++){
+            caracter = textoACifrar.substring(i,i+1);
+            if(valoresNoValidos.indexOf(caracter)>=0){
+                alert("Favor no usar vocales con tildes ni en mayúsculas");
+                textoCifrado = "";
+                break;
+            }
+            if(valoresTextoClaro.indexOf(caracter)>=0){
+                caracter = valoresTextoCifrado[valoresTextoClaro.indexOf(caracter)];
+            }
+            textoCifrado = textoCifrado + caracter;
+        }
+
+        textoProcesado.value = textoCifrado;
+
+        if(textoACifrar){
+            textIngrese.value = "";
+            botonCopiar.style.visibility = "visible";
+        }
+        else{
+            textIngrese.value = "Ingresa el texto que desees encriptar o desencriptar";
+            botonCopiar.style.visibility = "hidden";
+        }        
+    }
+
+    function desencripta(){
+        var textoAProcesar = document.querySelector(".textoAProcesar");
+        var textoProcesado = document.querySelector(".textoProcesado");
+        var botonCopiar = document.querySelector(".copiar");
+        var textIngrese = document.querySelector(".textIngrese");
+        var textoACifrar = textoAProcesar.value;
+        textoCifrado = textoACifrar;
+        for(i=0;i<valoresTextoCifrado.length;i++){
+            textoCifrado = textoCifrado.replaceAll(valoresTextoCifrado[i],valoresTextoClaro.substring(i,i+1));
+            console.log(i + "-"+textoCifrado);
+        }
+
+        textoProcesado.value = textoCifrado;
+
+        if(textoACifrar){
+            textIngrese.value = "";
+            botonCopiar.style.visibility = "visible";
+        }
+        else{
+            textIngrese.value = "Ingresa el texto que desees encriptar o desencriptar";
+            botonCopiar.style.visibility = "hidden";
+        }        
+    }
+
+    function copia(){
+        var botonCopiar = document.querySelector(".copiar");
+        var textoProcesado = document.querySelector(".textoProcesado");
+        navigator.clipboard.writeText(textoProcesado.value);
+        alert("Texto copiado")
+    }
+
+</script>
