@@ -1,0 +1,27 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:consultaDepartamentoResponse xmlns:ns2="http://venturessoft.ws.com/">
+         <return>
+            <error>false</error>
+            <decripcion>Proceso finalizado correctamente con [1] registro(s)</decripcion>
+            <log>Validando usuario ...</log>
+            <log>Usuario (OK)</log>
+            <log>Recuperando información ...</log>
+            <sDepartamento>
+               <agrupacion1></agrupacion1>
+               <agrupacion2></agrupacion2>
+               <agrupacion3></agrupacion3>
+               <area>06</area>
+               <centro>012</centro>
+               <claveLocalidad></claveLocalidad>
+               <claveProvincia></claveProvincia>
+               <cuentaContable>73</cuentaContable>
+               <descripAlternativaGral></descripAlternativaGral>
+               <descripcionEstructura>MANTENIMIENTO TERMOFORMAD0</descripcionEstructura>
+               <linea>2007</linea>
+               <status>A</status>
+            </sDepartamento>
+         </return>
+      </ns2:consultaDepartamentoResponse>
+   </S:Body>
+</S:Envelope>
